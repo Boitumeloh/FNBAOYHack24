@@ -1,0 +1,715 @@
+/* Reset Styles */
+/* @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css")  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #020a35;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 60px; /* Ensure content is not hidden behind the fixed navbar */
+}
+
+/* Navbar Links */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #4caf50; /* Hover color for navbar links */
+}
+
+
+
+.hero-content {
+  max-width: 80%; /* Limit the width of the content */
+    padding: 2rem; /* Add padding for better spacing */
+}
+
+.hero-content h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 1) 50%, rgba(2, 10, 53, 1) 50%); /* Green and blue gradient */
+  color: white;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 80vh;
+  position: relative; /* Position relative for child elements */
+  overflow: hidden; /* Hide overflow for the video */
+}
+
+.video-container {
+  flex: 1; /* Take remaining space */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Hide overflow */
+  position: absolute; /* Position the video */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  z-index: 0; /* Send video behind the content */
+}
+
+.video-container video {
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the area */
+  z-index: -1; /* Ensure video is behind the gradient */
+}
+
+.blue-overlay {
+  position: absolute; /* Position the blue overlay */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(2, 10, 53, 0.7); /* Blue with some transparency */
+  z-index: 1; /* Place above the video */
+}
+
+.hero-content {
+  max-width: 50%; /* Limit the width of the content */
+  padding: 2rem; /* Add padding for better spacing */
+  position: relative; /* Keep content above the overlay */
+  z-index: 2; /* Ensure content is on top of both overlays */
+  text-align: center; /* Center align the text */
+}
+
+
+
+.cta-button {
+  background-color: #020a35;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #03136b;
+}
+
+/* About Project Section */
+.about-project {
+  padding: 2rem;
+  /* background-color: #f9f9f9; Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  margin: 2rem; /* Space around the section */
+}
+
+
+.project-content {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between text and images */
+  align-items: flex-start; /* Align items at the start */
+}
+
+.project-description {
+  flex: 1; /* Text section */
+  margin-right: 20px; /* Space between text and images */
+}
+
+.project-description h1 {
+  font-size: 2.5rem;
+  color: #03136b;
+}
+
+.project-description p {
+  font-size: 1.3rem;
+  color: #080a16;
+}
+
+.project-images {
+  flex: 1; /* Images section */
+  display: flex; /* Flexbox for images */
+  justify-content: space-around; /* Space images evenly */
+  flex-wrap: wrap; /* Allow wrapping */
+   margin-right: 20px; 
+}
+
+.project-images img {
+  width: 100%; /* Responsive images */
+  max-width: 450px; /* Limit max width */
+  border-radius: 5px; /* Rounded corners */
+  /* margin: 5px; Space between images */
+}
+
+.project-content {
+  display: flex;               /* Use Flexbox for layout */
+  align-items: center;        /* Align items vertically */
+  margin-bottom: 2rem;        /* Space between sections */
+}
+
+.project-images {
+  flex: 1;                    /* Allow image to take up space */
+  margin-right: 20px;        /* Space between image and text */
+}
+
+.project-description {
+  flex: 2;                    /* Allow text to take up more space */
+}
+
+/* Revolving Capital Facility Section */
+.revolving-capital-facility {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between text and button */
+  align-items: center; /* Align items vertically in the center */
+  padding: 20px; /* Padding */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 20px; /* Space above the section */
+}
+
+.text-section {
+  flex: 1; /* Text section */
+  max-width: 60%; /* Limit width */
+}
+
+.button-section {
+  margin-left: 20px; /* Space between text and button */
+}
+
+.quote-button {
+  padding: 10px 20px; /* Button padding */
+  background-color: #020a35; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.quote-button:hover {
+  background-color: #03136b; /* Darker shade on hover */
+}
+.investor-section {
+  padding: 2rem;              /* Padding for the section */
+}
+
+.investor-content {
+  display: flex;              /* Flexbox for layout */
+  align-items: center;        /* Align items vertically */
+  margin-bottom: 2rem;        /* Space between sections */
+}
+
+
+.investor-description {
+  flex: 2;                    /* Allow text to take up more space */
+}
+
+.investor-description h1 {
+  font-size: 2.5rem;
+  color: #03136b;
+}
+
+.investor-description p {
+  font-size: 1.3rem;
+  color: #080a16;
+}
+
+.large-image {
+  width: 100%; 
+  max-width: 450px; 
+  border-radius: 5px;         
+}
+/* Businesses Section */
+.businesses-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.businesses-section h2 {
+  font-size: 2.5rem;
+  color: #020a35;
+  margin-bottom: 2rem;
+}
+
+.businesses-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.business-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: left;
+}
+.business-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.business-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.business-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.business-info {
+  padding: 1.5rem;
+}
+
+.business-info h3 {
+  font-size: 1.5rem;
+  color: #03136b;
+  margin-bottom: 0.5rem;
+}
+
+.business-info p {
+  color: #080a16;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-bottom: 1rem;
+}
+
+.progress {
+  background-color: #4caf50;
+  height: 100%;
+}
+
+.invest-button {
+  background-color: #020a35;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.invest-button:hover {
+  background-color: #03136b;
+}
+
+/* Hero Section for Invest Page */
+.hero-invest {
+  background: linear-gradient(135deg, #4caf50 50%, #020a35 50%);
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+}
+
+/* Investment Opportunities Section */
+.investment-opportunities {
+  padding: 2rem;
+  text-align: center;
+}
+
+.investment-opportunities h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #03136b;
+}
+
+.investment-opportunities p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #080a16;
+}
+
+.investment-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.investment-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.investment-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.investment-card h3 {
+  color: #4caf50;
+  margin-bottom: 0.8rem;
+}
+
+.investment-card p {
+  margin-bottom: 1rem;
+  color: #080a16;
+}
+
+/* Benefits Section */
+.investment-benefits {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  text-align: center;
+}
+
+.investment-benefits h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #03136b;
+}
+
+.investment-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.investment-benefits li {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+
+/* Dashboard Section */
+.dashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #020a35;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #05104e;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Transactions Table */
+.transactions table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.transactions th, 
+.transactions td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.transactions th {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.status.pending {
+  background-color: #ff9800;
+  color: white;
+}
+
+.status.failed {
+  background-color: #f44336;
+  color: white;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .businesses-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.business-updates {
+  padding: 2rem;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  margin: 2rem; /* Space around the section */
+}
+
+.updates-container {
+  max-width: 800px; /* Limit width for readability */
+  margin: 0 auto; /* Center the container */
+}
+
+.business-updates h2 {
+  font-size: 2.5rem;
+  color: #03136b; /* Dark color for headers */
+  margin-bottom: 1rem;
+  text-align: center; /* Center the header */
+}
+
+.business-updates p {
+  font-size: 1.2rem;
+  color: #080a16; /* Dark color for text */
+  text-align: center; /* Center the paragraph */
+  margin-bottom: 2rem;
+}
+
+.update-card {
+  background-color: #ffffff; /* White background for cards */
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1.5rem; /* Padding for content */
+  margin-bottom: 1.5rem; /* Space between cards */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.update-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.update-card h3 {
+  font-size: 1.8rem;
+  color: #03136b; /* Dark color for titles */
+}
+
+.update-card p {
+  font-size: 1rem;
+  color: #555; /* Gray color for content */
+}
+
+.cta-button {
+  /* display: block; Make button a block element */
+  margin: 2rem auto; /* Center the button */
+  background-color: #020a35;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-align: center; /* Center text in button */
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #03136b; /* Darker shade on hover */
+}
+
+/* Investment Details Page Styles */
+.investment-details {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.business-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.details-info {
+  text-align: left;
+}
+
+.investment-amount {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cta-button {
+  background-color: #020a35; /* Green color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #061153; /* Darker green on hover */
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: red;
+  float: right;
+  font-size: 28px;
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #020a35;
+  color: white;
+}
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh; /* Adjust height for smaller screens */
+    background-position: top; /* Focus on the top of the image */
+  }
+
+  .project-content {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center; /* Center items */
+  }
+
+  .project-images {
+    justify-content: center; /* Center images */
+  }
+
+  .revolving-capital-facility {
+    flex-direction: column; /* Stack text and button on smaller screens */
+    align-items: center; /* Center align */
+    text-align: center; /* Center text */
+  }
+
+  .button-section {
+    margin-left: 0; /* Remove margin for stacked layout */
+    margin-top: 10px; /* Add space above the button */
+  }
+
+  .hero-content {
+    max-width: 75%; /* Limit the width of the content */
+    padding: 2rem; /* Add padding for better spacing */
+    position: relative; /* Keep content above the overlay */
+    z-index: 2; /* Ensure content is on top of both overlays */
+    text-align: center; /* Center align the text */
+  }
+}

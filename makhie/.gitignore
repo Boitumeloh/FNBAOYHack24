@@ -1,0 +1,9 @@
+# Distribution / packaging
+
+node_modules
+
+# Environment Variables
+
+.env
+
+

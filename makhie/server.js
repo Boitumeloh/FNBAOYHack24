@@ -12,7 +12,7 @@ app.use(express.json());
 connectDB();
 
 // Serve static files from the 'client' directory
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // API Routes
 app.use('/api/users', require('./routes/userRoutes'));
@@ -22,7 +22,36 @@ app.use('/api/risks', require('./routes/riskRoutes'));
 
 // Serve the index.html file for the default route ('/')
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'index.html'));
+});
+
+app.post('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'index.html'));
+});
+
+// Serve the businesses page for the '/businesses' route
+app.get('/businesses', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'businesspage.html'));
+});
+
+// Serve the businesses page for the '/:id/dashboard' route
+app.get('/:id/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'invest_dashboard.html'));
+});
+
+// Serve the businesses page for the '/:id/dashboard' route
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'invest_dashboard.html'));
+});
+
+// Serve the businesses page for the '/login' route
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'login.html'));
+});
+
+// Serve the businesses page for the '/login' route
+app.get('/invest', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'invest.html'));
 });
 
 // Catch-All for Undefined Routes

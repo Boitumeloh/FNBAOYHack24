@@ -1,10 +1,10 @@
-const User = require('../models/User');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 // Generate JWT Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 };
 
 // Fetch all users
@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
     // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     // Hash the password once and log it to confirm consistency
@@ -63,7 +63,7 @@ const loginUser = async (req, res) => {
     // Find the user by email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
     // Log the stored hashed password and compare it
@@ -75,7 +75,7 @@ const loginUser = async (req, res) => {
     console.log("Password match: ", isMatch);
 
     if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid password' });
+      return res.status(400).json({ message: "Invalid password" });
     }
 
     // Return user info and JWT token for login
@@ -90,4 +90,9 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, registerUser, loginUser };
+const logoutUser = (req, res) => {
+  // Respond to the client to handle token removal
+  res.json({ message: 'Successfully logged out', redirectTo: '/' });
+};
+
+module.exports = { getUsers, registerUser, loginUser, logoutUser };

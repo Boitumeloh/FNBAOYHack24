@@ -20,6 +20,7 @@ app.use('/api/businesses', require('./routes/businessRoutes'));
 app.use('/api/locations', require('./routes/locationRoutes'));
 app.use('/api/risks', require('./routes/riskRoutes'));
 
+
 // Serve the index.html file for the default route ('/')
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'index.html'));
@@ -52,6 +53,10 @@ app.get('/dashboard', (req, res) => {
 // Serve the businesses page for the '/login' route
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'login.html'));
+});
+
+app.get('/logout', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'home.html'));
 });
 
 // Serve the businesses page for the '/login' route

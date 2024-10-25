@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser } = require('../controllers/userController');  // Import auth-related controllers
+const { registerUser, loginUser, logoutUser } = require('../controllers/userController');  // Import auth-related controllers
 const { protect } = require('../middleware/authMiddleware'); // Import auth middleware
 const User = require('../models/User');
 
@@ -9,6 +9,8 @@ router.post('/register', registerUser);
 
 // Route for user login
 router.post('/login', loginUser);
+
+router.get("/logout", logoutUser);
 
 // Protected route to get user balance and transactions (requires authentication)
 router.get('/:id', protect, async (req, res) => {

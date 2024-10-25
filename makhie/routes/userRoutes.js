@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const { registerUser, loginUser } = require('../controllers/userController');  // Import auth-related controllers
+const { protect } = require('../middleware/authMiddleware'); // Import auth middleware
 const User = require('../models/User');
 
-// Get user balance and transactions
-router.get('/:id', async (req, res) => {
+// Route for registering a new user
+router.post('/register', registerUser);
+
+// Route for user login
+router.post('/login', loginUser);
+
+// Protected route to get user balance and transactions (requires authentication)
+router.get('/:id', protect, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (user) {
@@ -16,8 +24,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// Deposit money
-router.post('/:id/deposit', async (req, res) => {
+// Protected route for depositing money (requires authentication)
+router.post('/:id/deposit', protect, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (user) {
@@ -34,8 +42,8 @@ router.post('/:id/deposit', async (req, res) => {
     }
 });
 
-// Withdraw money
-router.post('/:id/withdraw', async (req, res) => {
+// Protected route for withdrawing money (requires authentication)
+router.post('/:id/withdraw', protect, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (user) {

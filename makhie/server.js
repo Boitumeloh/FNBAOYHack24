@@ -29,6 +29,11 @@ app.post('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'index.html'));
 });
 
+// Serve the businesses page for the '/login' route
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/views', 'register.html'));
+});
+
 // Serve the businesses page for the '/businesses' route
 app.get('/businesses', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'businesspage.html'));

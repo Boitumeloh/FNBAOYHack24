@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Investment Dashboard | Township Micro-Investment Platform</title>
   <link rel="stylesheet" href="styles.css" />
-  <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
-    />
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
 </head>
+
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
+    <a href="/">
+      <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
+    </a>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/businesses">Businesses</a></li>
-        <!-- <li><a href="invest.html">Invest</a></li> -->
         <li><a href="/dashboard" class="active">Dashboard</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
@@ -29,7 +30,7 @@
   <section class="dashboard">
     <div class="dashboard-header">
       <h2>Investment Overview</h2>
-      <a href="/invest"><button  class="cta-button">Add New Investment</button></a>
+      <a href="/invest"><button class="cta-button">Add New Investment</button></a>
     </div>
 
     <div class="stats-grid">
@@ -90,6 +91,10 @@
   <footer class="footer">
     <p>&copy; 2024 Township Micro-Investment Platform. All Rights Reserved.</p>
   </footer>
-  <script src="../scripts/app.js"></script>
+
+  <!-- External JavaScript files -->
+  <script src="/scripts/protectPage.js"></script> <!-- For login protection -->
+  <script src="../scripts/app.js"></script> <!-- Application scripts -->
 </body>
+
 </html>

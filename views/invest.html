@@ -1,71 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invest | Township Micro-Investment Platform</title>
-    <link rel="stylesheet" href="../public/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
-    />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header class="navbar">
-      <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="businesspage.html">Businesses</a></li>
-          <li><a href="invest.html" class="active">Invest</a></li>
-          <li><a href="invest_dashboard.html">Dashboard</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment in Township Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Invest in Our Township Projects</h1>
+        <p>Your investment can help transform our community.</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero hero-invest">
-      <div class="hero-content">
-        <h2>Empower the Future of Local Enterprises</h2>
-        <p>
-          Invest with purpose. Grow with impact. Discover how your small
-          investment can create lasting change.
-        </p>
-        <a href="#opportunities" class="cta-button">Explore Opportunities</a>
-      </div>
-    </section>
-    <!-- Investment Modal -->
-    <div id="investment-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Invest in a Project</h2>
-        <form>
-          <label for="project">Select Project:</label>
-          <select id="project" name="project">
-            <option value="project-a">Project A</option>
-            <option value="project-b">Project B</option>
-          </select>
+    <main>
+        <section class="project-list">
+            <div class="project">
+                <h2>Project Title 1</h2>
+                <p>Description: A brief overview of the project.</p>
+                <p>Progress: 60% Completed</p>
+                <p>Investment Required: $10,000</p>
+                <p>ROI Projections: Estimated ROI: 15% over 3 years</p>
+                <a href="investment_form.html" class="btn">Invest Now</a>
+            </div>
 
-          <label for="amount">Investment Amount:</label>
-          <input
-            type="number"
-            id="amount"
-            name="amount"
-            placeholder="Enter amount"
-          />
+            <div class="project">
+                <h2>Project Title 2</h2>
+                <p>Description: A brief overview of the project.</p>
+                <p>Progress: 40% Completed</p>
+                <p>Investment Required: $15,000</p>
+                <p>ROI Projections: Estimated ROI: 20% over 5 years</p>
+                <a href="investment_form.html" class="btn">Invest Now</a>
+            </div>
 
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+            <!-- Add more projects as needed -->
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>
-        &copy; 2024 Township Micro-Investment Platform. All Rights Reserved.
-      </p>
+    <footer>
+        <p>Contact us: info@townshipprojects.com</p>
+        <p>Follow us on social media!</p>
     </footer>
-  </body>
+</body>
 </html>

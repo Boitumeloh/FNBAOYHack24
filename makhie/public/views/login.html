@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Township Micro-Investment Platform</title>
+  <link rel="stylesheet" href="/views/styles.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="loginForm" action="/api/users/login" method="POST">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        
-        <button type="submit">Login</button>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
+        <nav>
+          <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./register.html">Register</a></li>
+            <!-- <li><a href="invest.html">Invest</a></li> -->
+            <!-- <li><a href="/dashboard">Dashboard</a></li> -->
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+  <!-- Login Container -->
+  <div class="login-container">
+    <h1>Welcome Back</h1>
+    <form class="login-form" action="/login" method="POST">
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" class="cta-button">Login</button>
+
+      <!-- Register Link -->
+      <p>Don't have an account? <a href="register.html">Register here</a></p>
     </form>
-
-    <div id="message"></div>
-
-    <script src="../scripts/login.js"></script>
+  </div>
 </body>
 </html>

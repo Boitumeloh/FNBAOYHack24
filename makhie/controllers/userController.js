@@ -28,11 +28,12 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Hash the password before saving the user
+    // Hash the password once and log it to confirm consistency
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+    console.log("Hashed password during registration:", hashedPassword);
 
-    // Create a new user instance
+    // Create a new user instance with the hashed password
     const user = new User({
       username,
       email,
@@ -65,8 +66,14 @@ const loginUser = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Compare passwords
+    // Log the stored hashed password and compare it
+    console.log("Stored hashed password in database:", user.password);
+    console.log("Plain password provided at login:", password);
+
+    // Compare provided password with stored hashed password
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("Password match: ", isMatch);
+
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid password' });
     }

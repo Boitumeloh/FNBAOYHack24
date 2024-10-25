@@ -18,20 +18,19 @@
           <ul>
             <li><a href="./home.html">Home</a></li>
             <li><a href="./register.html">Register</a></li>
-            <!-- <li><a href="invest.html">Invest</a></li> -->
-            <!-- <li><a href="/dashboard">Dashboard</a></li> -->
             <li><a href="/login">Login</a></li>
           </ul>
         </nav>
       </header>
+
   <!-- Registration Container -->
   <div class="register-container">
     <h1>Create Your Account</h1>
-    <form id="dataForm" class="register-form" >
+    <form id="dataForm" class="register-form">
       <!-- Name Field -->
       <div class="form-group">
         <label for="username">Name</label>
-        <input type="text" id="name" name="username" placeholder="Enter your name" required />
+        <input type="text" id="username" name="username" placeholder="Enter your name" required />
       </div>
 
       <!-- Email Field -->
@@ -46,20 +45,14 @@
         <input type="password" id="password" name="password" placeholder="Enter your password" required />
       </div>
 
-      <!-- Confirm Password Field -->
-      <!-- <div class="form-group">
-        <label for="password">Confirm Password</label>
-        <input type="password" id="password" name="password" placeholder="Confirm your password" required />
-      </div> -->
-
       <!-- Register Button -->
-      <button type="submit" class="cta-button" href="#" onClick="convertToJson()">Register</button>
+      <button type="submit" class="cta-button">Register</button>
 
       <!-- Login Link -->
       <p>Already have an account? <a href="/login">Login here</a></p>
     </form>
   </div>
 
-  <script src="../scripts/JSON.js"></script>
+  <script src="../scripts/register.js"></script>
 </body>
 </html>

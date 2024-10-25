@@ -18,16 +18,15 @@
           <ul>
             <li><a href="./home.html">Home</a></li>
             <li><a href="./register.html">Register</a></li>
-            <!-- <li><a href="invest.html">Invest</a></li> -->
-            <!-- <li><a href="/dashboard">Dashboard</a></li> -->
             <li><a href="./login.html">Login</a></li>
           </ul>
         </nav>
       </header>
+  
   <!-- Login Container -->
   <div class="login-container">
     <h1>Welcome Back</h1>
-    <form class="login-form" action="/login" method="POST">
+    <form id="loginForm" class="login-form" method="POST">
       <!-- Email Field -->
       <div class="form-group">
         <label for="email">Email</label>
@@ -47,5 +46,7 @@
       <p>Don't have an account? <a href="register.html">Register here</a></p>
     </form>
   </div>
+
+  <script src="../scripts/login.js"></script>
 </body>
 </html>

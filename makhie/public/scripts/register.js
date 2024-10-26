@@ -29,7 +29,7 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
     if (response.ok) {
       // Registration successful
       alert('Registration successful! Welcome, ' + data.username);
-      window.location.href = '/login'; // Redirect to the login page
+      window.location.href = '/'; // Redirect to the landing page
     } else {
       // Registration failed
       alert('Error: ' + data.message);

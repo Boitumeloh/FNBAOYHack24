@@ -1,69 +1,43 @@
-document.getElementById('loginForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const flashMessage = document.getElementById('flashMessage');
 
     try {
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
         });
 
         const data = await response.json();
 
-        if (data.token) {
+        if (response.ok) {
+            // Login success message
+            flashMessage.textContent = `Login successful! Welcome back, ${data.username}`;
+            flashMessage.className = 'flash-message show';
             localStorage.setItem('token', data.token);
-            window.location.href = '/invest_dashboard.html';
+
+            // Hide message and redirect to dashboard after delay
+            setTimeout(() => {
+                flashMessage.className = 'flash-message hide';
+                setTimeout(() => { window.location.href = '/dashboard'; }, 500);
+            }, 2000);
         } else {
-            document.getElementById('message').innerText = 'Login failed';
+            // Login failed message
+            flashMessage.textContent = `Error: ${data.message}`;
+            flashMessage.className = 'flash-message show';
+
+            // Hide message after delay
+            setTimeout(() => { flashMessage.className = 'flash-message hide'; }, 2000);
         }
     } catch (error) {
-        document.getElementById('message').innerText = 'Error occurred while logging in';
+        console.error('Error during login:', error);
+        flashMessage.textContent = 'Error occurred while logging in. Please try again later.';
+        flashMessage.className = 'flash-message show';
+
+        setTimeout(() => { flashMessage.className = 'flash-message hide'; }, 2000);
     }
 });
-
-// Event listener for form submission
-document.getElementById('loginForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Gather form data
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    // Create user object
-    const userData = {
-      email: email,
-      password: password
-    };
-
-    try {
-      // Send a POST request to the login API endpoint
-      const response = await fetch('/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      // Handle the response
-      const data = await response.json();
-      if (response.ok) {
-        // Login successful
-        alert('Login successful! Welcome back, ' + data.username);
-        // Store token in local storage (if applicable)
-        localStorage.setItem('token', data.token);
-        window.location.href = '/dashboard'; // Redirect to the dashboard page
-      } else {
-        // Login failed
-        alert('Error: ' + data.message);
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-      alert('Login failed. Please try again later.');
-    }
-  });

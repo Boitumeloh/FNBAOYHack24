@@ -1,6 +1,17 @@
 const Business = require('../models/Business');
 
-// Fetch all businesses
+// Fetch all businesses and render the businesses page
+const getBusinessesPage = async (req, res) => {
+    try {
+        const businesses = await Business.find(); // Fetch all businesses from the database
+        res.render('businesspage', { businesses }); // Render the EJS template with businesses data
+    } catch (error) {
+        console.error('Error fetching businesses:', error);
+        res.status(500).send('Server Error');
+    }
+};
+
+// Fetch all businesses (as JSON)
 const getBusinesses = async (req, res) => {
     try {
         const businesses = await Business.find();
@@ -21,4 +32,5 @@ const createBusiness = async (req, res) => {
     }
 };
 
-module.exports = { getBusinesses, createBusiness };
+module.exports = { getBusinesses, createBusiness, getBusinessesPage }; // Export the new function
+

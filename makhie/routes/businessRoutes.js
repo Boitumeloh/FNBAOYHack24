@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Business = require('../models/Business');
 
-// Get all businesses
-router.get('/', async (req, res) => {
+// Get all businesses and render the business page
+router.get('/businesses', async (req, res) => {
     try {
         const businesses = await Business.find().populate('risk_id location_id');
-        res.json(businesses);
+        res.render('businesspage', { businesses }); // Render the EJS page and pass the data
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -33,3 +33,4 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
+

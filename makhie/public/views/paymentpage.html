@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - Makhie</title>
+    <link rel="stylesheet" href="paymentpage.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <h1><a href="index.html">Makhie</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="businesspage.html">Businesses</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+      <h2>Complete Your Payment</h2>
+
+      <!-- Dynamic Payment Summary -->
+      <div class="payment-summary">
+        <h3>Payment Details</h3>
+        <p><strong>User Type:</strong> <span id="userType">Investor</span></p>
+        <p><strong>Description:</strong> Investing in Local Grocery Store</p>
+      </div>
+
+      <!-- Custom Payment Amount -->
+      <form id="paymentForm" action="/process-payment" method="POST">
+        <label for="amount">Enter Amount (R):</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          min="1"
+          placeholder="Enter the amount you wish to pay"
+          required
+        />
+
+        <label for="paymentMethod">Select Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="credit">Credit/Debit Card</option>
+          <option value="bankTransfer">Bank Transfer (FNB)</option>
+          <option value="wallet">Wallet Balance</option>
+        </select>
+
+        <!-- Card Details Section -->
+        <div class="card-details" id="cardDetails">
+          <label for="cardNumber">Card Number:</label>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required />
+
+          <label for="expiryDate">Expiry Date:</label>
+          <input type="month" id="expiryDate" name="expiryDate" required />
+
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" placeholder="123" required />
+        </div>
+
+        <button type="submit" class="cta-button">Pay Now</button>
+      </form>
+    </section>
+
+    <script>
+      // Show or hide card details based on selected payment method
+      const paymentMethod = document.getElementById('paymentMethod');
+      const cardDetails = document.getElementById('cardDetails');
+
+      paymentMethod.addEventListener('change', function () {
+        if (this.value === 'credit') {
+          cardDetails.style.display = 'block';
+        } else {
+          cardDetails.style.display = 'none';
+        }
+      });
+
+      // Initialize: Hide card details if another payment method is selected
+      window.onload = () => {
+        if (paymentMethod.value !== 'credit') {
+          cardDetails.style.display = 'none';
+        }
+      };
+    </script>
+  </body>
+</html>

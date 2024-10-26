@@ -1,0 +1,80 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #4caf50;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar h1 a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar li {
+    margin-left: 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* About Us Section */
+  .about-us {
+    padding: 40px 20px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .about-us h3 {
+    margin-top: 20px;
+    color: #4caf50;
+  }
+  
+  .about-us p {
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .about-us ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .about-us li {
+    margin-bottom: 10px;
+  }
+  
+  .cta {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #333;
+  }
+  

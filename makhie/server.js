@@ -55,7 +55,7 @@ app.get('/login', (req, res) => {
 
 // Serve the investment page
 app.get('/invest', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'views', 'invest.html'));
+    res.render('invest');
 });
 
 // Catch-All for Undefined Routes

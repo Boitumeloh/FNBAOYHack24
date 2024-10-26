@@ -32,5 +32,27 @@ const createBusiness = async (req, res) => {
     }
 };
 
-module.exports = { getBusinesses, createBusiness, getBusinessesPage }; // Export the new function
+const registerBusiness = async (req, res) => {
+    try {
+        const { business_name, industry, funding_goal, benefit, time_span, location_id } = req.body;
+        
+        // Create new business document
+        const newBusiness = new Business({
+            business_name,
+            industry,
+            funding_goal,
+            benefit,
+            time_span,
+            location_id,
+            funding_received: 0, // default value for funding received
+        });
+
+        await newBusiness.save();
+        res.status(201).json({ message: 'Business registered successfully', business: newBusiness });
+    } catch (error) {
+        res.status(500).json({ message: 'Error registering business', error: error.message });
+    }
+};
+
+module.exports = { getBusinesses, createBusiness, getBusinessesPage, registerBusiness }; // Export the new function
 

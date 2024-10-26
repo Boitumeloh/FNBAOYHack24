@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Registration | Township Micro-Investment Platform</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+  />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">User Register</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Business Registration Container -->
+  <div class="register-container">
+    <h1>Register Your Business</h1>
+    <form id="businessForm" class="register-form" method="POST" action="/api/businesses/register">
+      <!-- Business Name -->
+      <div class="form-group">
+        <label for="business_name">Business Name</label>
+        <input type="text" id="business_name" name="business_name" placeholder="Enter your business name" required />
+      </div>
+
+      <!-- Industry -->
+      <div class="form-group">
+        <label for="industry">Industry</label>
+        <input type="text" id="industry" name="industry" placeholder="Enter your industry" required />
+      </div>
+
+      <!-- Funding Goal -->
+      <div class="form-group">
+        <label for="funding_goal">Funding Goal</label>
+        <input type="number" id="funding_goal" name="funding_goal" placeholder="Enter funding goal" required />
+      </div>
+
+      <!-- Benefit -->
+      <div class="form-group">
+        <label for="benefit">Benefit</label>
+        <textarea id="benefit" name="benefit" placeholder="Describe the benefit of your business" required></textarea>
+      </div>
+
+      <!-- Time Span -->
+      <div class="form-group">
+        <label for="time_span">Funding Time Span</label>
+        <input type="text" id="time_span" name="time_span" placeholder="Enter time span for funding (e.g., 6 months)" required />
+      </div>
+
+      <!-- Funding Received (Optional) -->
+      <div class="form-group">
+        <label for="funding_received">Funding Already Received</label>
+        <input type="number" id="funding_received" name="funding_received" placeholder="Enter amount already received" value="0" />
+      </div>
+
+      <!-- Image URL (Optional) -->
+      <div class="form-group">
+        <label for="image">Business Image URL</label>
+        <input type="url" id="image" name="image" placeholder="Provide a URL for your business image" />
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Describe your business (optional)"></textarea>
+      </div>
+
+      <button type="submit" class="cta-button">Register Business</button>
+    </form>
+  </div>
+
+  <script src="/scripts/businessRegister.js"></script>
+</body>
+</html>

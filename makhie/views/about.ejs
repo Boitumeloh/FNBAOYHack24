@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - <%= business.business_name %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="about-container">
+        <section class="header">
+            <h1>About <%= business.business_name %></h1>
+            <p class="industry">Industry: <%= business.industry %></p>
+        </section>
+
+        <section class="business-details">
+            <div class="image-container">
+                <% if (business.image) { %>
+                    <img src="<%= business.image %>" alt="<%= business.business_name %>">
+                <% } else { %>
+                    <img src="/images/default-business.jpg" alt="Default Image">
+                <% } %>
+            </div>
+            <div class="text-content">
+                <p><%= business.description || "Welcome to our business. We strive to make an impact in the industry." %></p>
+                <p><strong>Funding Goal:</strong> $<%= business.funding_goal.toLocaleString() %></p>
+                <p><strong>Funding Received:</strong> $<%= business.funding_received.toLocaleString() %></p>
+                <p><strong>Project Timeline:</strong> <%= business.time_span %></p>
+                <p><strong>Benefit:</strong> <%= business.benefit %></p>
+                <p><strong>Location:</strong> <%= business.location_id %></p>
+            </div>
+        </section>
+        
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>At <%= business.business_name %>, we are committed to delivering exceptional value through innovative practices and a focus on our mission of <%= business.benefit %>.</p>
+            <p>We look forward to partnering with investors, clients, and the community to reach our funding goal of $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
+        </section>
+    </div>
+</body>
+</html>

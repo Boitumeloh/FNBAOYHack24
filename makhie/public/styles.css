@@ -786,6 +786,72 @@ body {
 .login-form a:hover {
   text-decoration: underline;
 }
+
+.about-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #020a35;
+}
+
+.industry {
+  font-size: 1.1em;
+  color: #020a35;
+  margin-top: 8px;
+}
+
+.business-details {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content p {
+  margin-bottom: 10px;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.mission {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.mission h2 {
+  font-size: 1.8em;
+  color: #020a35;
+  margin-bottom: 10px;
+}
+
+.mission p {
+  font-size: 1em;
+  line-height: 1.6;
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -828,5 +894,50 @@ body {
     position: relative; /* Keep content above the overlay */
     z-index: 2; /* Ensure content is on top of both overlays */
     text-align: center; /* Center align the text */
+  }
+}
+
+/* Flash Message - Full-width bar styling */
+.flash-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 0.85); /* Pale blue */
+  color: #1c3a5f;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  z-index: 1000;
+}
+
+/* Show and hide effects */
+.flash-message.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: puffEffect 0.5s forwards; /* Trigger smoke puff animation */
+}
+
+.flash-message.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Puff of smoke animation */
+@keyframes puffEffect {
+  0% {
+      filter: blur(3px);
+      opacity: 0;
+      transform: scale(1.2);
+  }
+  100% {
+      filter: blur(0px);
+      opacity: 1;
+      transform: scale(1);
   }
 }

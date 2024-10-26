@@ -12,6 +12,8 @@ router.get('/businesses', async (req, res) => {
     }
 });
 
+
+
 // Add a new business
 router.post('/', async (req, res) => {
     const business = new Business({

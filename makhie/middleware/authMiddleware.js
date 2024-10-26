@@ -17,13 +17,17 @@ exports.protect = async (req, res, next) => {
             // Attach the user object to the request (excluding the password)
             req.user = await User.findById(decoded.id).select('-password');
 
-            next(); // Move to the next middleware or route handler
+            // Allow access to the next middleware or route handler
+            return next();
         } catch (error) {
-            res.status(401).json({ message: 'Not authorized, token failed' });
+            console.error('Token verification failed:', error);
+            // Redirect to login if token verification fails
+            return res.redirect('/login');
         }
     }
 
+    // Redirect to login if no token is provided
     if (!token) {
-        res.status(401).json({ message: 'Not authorized, no token' });
+        return res.redirect('/login');
     }
 };

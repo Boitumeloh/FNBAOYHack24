@@ -2,7 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const path = require('path');
-const {protect} = require('./middleware/authMiddleware');
+const { protect } = require('./middleware/authMiddleware'); // Import the protect middleware
+const session = require('express-session');
 
 dotenv.config();
 
@@ -19,48 +20,57 @@ app.set('views', path.join(__dirname, 'views')); // Ensure views directory path
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Session configuration 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, // Set a secure secret in your .env file
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }, // Set to `true` if using HTTPS
+  })
+);
+
 // API Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/businesses', require('./routes/businessRoutes'));
 app.use('/api/locations', require('./routes/locationRoutes'));
 app.use('/api/risks', require('./routes/riskRoutes'));
 
-
 // Serve the index.html file for the default route ('/')
 app.get('/', (req, res) => {
-    res.render('landinghome')
+  res.render('landinghome');
 });
 
-app.get('/home',  (req, res) => {
-    res.render('home');
-  });
+// Serve the login page
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'));
+});
 
 // Serve the registration page
 app.get('/register', (req, res) => {
-    res.render('register'); // Automatically looks for register.ejs in the views folder
+  res.render('register'); // Automatically looks for register.ejs in the views folder
 });
 
 // Route to get businesses page
 app.get('/businesses', require('./controllers/businessController').getBusinessesPage);
 
-// Serve the dashboard page for the '/dashboard' route
-app.get('/dashboard', (req, res) => {
-    res.render('dashboard');
+// Protect /home and /dashboard routes
+app.get('/home', protect, (req, res) => {
+  res.render('home'); // This should match your home.ejs file
 });
 
-// Serve the login page
-app.get('/login', (req, res) => {
-    res.render('login');
+app.get('/dashboard', protect, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'views', 'invest_dashboard.html'));
 });
 
 // Serve the investment page
 app.get('/invest', (req, res) => {
-    res.render('invest');
+  res.sendFile(path.join(__dirname, 'public', 'views', 'invest.html'));
 });
 
 // Catch-All for Undefined Routes
 app.use((req, res, next) => {
-    res.status(404).json({ message: 'Route not found' });
+  res.status(404).json({ message: 'Route not found' });
 });
 
 // Start the server

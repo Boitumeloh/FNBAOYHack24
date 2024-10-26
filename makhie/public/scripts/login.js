@@ -23,7 +23,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             // Hide message and redirect to dashboard after delay
             setTimeout(() => {
                 flashMessage.className = 'flash-message hide';
-                setTimeout(() => { window.location.href = '/dashboard'; }, 500);
+                setTimeout(() => { window.location.href = '/home'; }, 500);
             }, 2000);
         } else {
             // Login failed message

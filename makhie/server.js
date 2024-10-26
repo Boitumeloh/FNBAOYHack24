@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const path = require('path');
+const {protect} = require('./middleware/authMiddleware');
 
 dotenv.config();
 
@@ -27,8 +28,12 @@ app.use('/api/risks', require('./routes/riskRoutes'));
 
 // Serve the index.html file for the default route ('/')
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'views', 'index.html'));
+    res.render('landinghome')
 });
+
+app.get('/home',  (req, res) => {
+    res.render('home');
+  });
 
 // Serve the registration page
 app.get('/register', (req, res) => {
@@ -40,12 +45,12 @@ app.get('/businesses', require('./controllers/businessController').getBusinesses
 
 // Serve the dashboard page for the '/dashboard' route
 app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'views', 'invest_dashboard.html'));
+    res.render('dashboard');
 });
 
 // Serve the login page
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'));
+    res.render('login');
 });
 
 // Serve the investment page

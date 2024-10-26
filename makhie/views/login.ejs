@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Township Micro-Investment Platform</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+
+  <!-- Flash Message -->
+<div id="flashMessage" class="flash-message"></div>
+
+  <!-- Login Container -->
+  <div class="login-container">
+    <h1>Welcome Back</h1>
+    <form id="loginForm" class="login-form" method="POST">
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" class="cta-button">Login</button>
+
+      <!-- Register Link -->
+      <p>Don't have an account? <a href="/register">Register here</a></p>
+    </form>
+  </div>
+
+  <script src="/scripts/login.js"></script>
+</body>
+</html>

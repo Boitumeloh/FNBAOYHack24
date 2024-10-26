@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Makhie</title>
+    <link rel="stylesheet" href="userprofile.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <h1>Makhie</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="profile-container">
+      <h2 id="userName">Welcome, John Doe!</h2>
+      <p>Your role: <span id="userType">Investor</span></p>
+
+      <!-- Dynamic Sections -->
+      <div id="stokvelMember" class="content">
+        <h3>Your Stokvel Groups</h3>
+        <ul>
+          <li>Savings Stokvel: R1,000/month</li>
+          <li>Celebration Stokvel: Wedding Fund</li>
+        </ul>
+      </div>
+
+      <div id="organization" class="content">
+        <h3>Managed Stokvels</h3>
+        <p>Track the performance of your corporate or community stokvel initiatives.</p>
+      </div>
+
+      <div id="business" class="content">
+        <h3>Business Projects</h3>
+        <p>Your business has raised 60% funding.</p>
+      </div>
+
+      <div id="investor" class="content active">
+        <h3>Your Investments</h3>
+        <ul>
+          <li>Local Grocery - 60% Funded</li>
+          <li>Township Cafe - 45% Funded</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // Simulate fetching the user type (in a real app, this would come from the backend)
+      const userType = "Investor"; // Example: Stokvel Member, Organization, Business, Investor
+
+      // Display the relevant content based on the user type
+      document.getElementById(userType.toLowerCase()).classList.add("active");
+    </script>
+  </body>
+</html>

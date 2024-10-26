@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makhie Dashboard - Township Micro-Investment Platform</title>
+    <link rel="stylesheet" href="landingpage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <a href="home.html">
+        <h1 class="logo">
+          <i class="fi fi-bs-square-m"></i>Makhie
+        </h1>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="businesspage.html" class="active">Businesses</a></li>
+          <li><a href="invest_dashboard.html">Dashboard</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search stokvels or businesses..."
+      />
+    </div>
+
+    <!-- Call-to-Action Buttons -->
+    <div class="cta-buttons">
+      <button class="cta-button">Create a Stokvel</button>
+      <button class="cta-button">Create an Investment Opportunity</button>
+    </div>
+
+    <!-- Businesses Section -->
+    <section class="businesses-section">
+      <h2>Explore Businesses & Investment Opportunities</h2>
+      <div class="businesses-container">
+        <!-- Business Card 1 -->
+        <div class="business-card">
+          <img
+            src="../img/localgrocery.jpg"
+            alt="Local Shop"
+            class="business-image"
+          />
+          <div class="business-info">
+            <h3>Local Grocery Store</h3>
+            <p>
+              A neighborhood store offering fresh produce and household goods.
+            </p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%"></div>
+            </div>
+            <p>60% funded</p>
+            <button class="invest-button">About Us</button>
+            <a href="invest.html">
+              <button class="cta-button">Invest Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Business Card 2 -->
+        <div class="business-card">
+          <img
+            src="../img/townshipcafe.jpg"
+            alt="Township Cafe"
+            class="business-image"
+          />
+          <div class="business-info">
+            <h3>Township Cafe</h3>
+            <p>A vibrant community hub serving coffee and local treats.</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 45%"></div>
+            </div>
+            <p>45% funded</p>
+            <button class="invest-button">About Us</button>
+            <a href="invest.html">
+              <button class="cta-button">Invest Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Business Card 3 -->
+        <div class="business-card">
+          <img src="../img/bakery.webp" alt="Bakery" class="business-image" />
+          <div class="business-info">
+            <h3>Community Bakery</h3>
+            <p>Freshly baked goods for the entire neighborhood.</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+            <p>75% funded</p>
+            <button class="invest-button">About Us</button>
+            <a href="invest.html">
+              <button class="cta-button">Invest Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Stokvel Section -->
+     <section class="stokvel-section">
+        <h2>Explore Stokvel Models</h2>
+        <p>Select a stokvel model to get started or learn more about how Makhie can help you manage and grow your group’s wealth.</p>
+  
+        <div class="stokvel-container">
+          <!-- Savings Stokvel -->
+          <div class="stokvel-card">
+            <h3>Savings Stokvel</h3>
+            <p>Group members contribute regularly, with each member receiving the pooled money in rotation.</p>
+            <ul>
+              <li>Use for emergencies, festive spending, or bulk groceries.</li>
+              <li>Example: 10 members contribute R1,000 monthly.</li>
+            </ul>
+            <p><strong>How Makhie Helps:</strong></p>
+            <ul>
+              <li>Automates contributions and payouts.</li>
+              <li>Sends reminders and offers savings insights.</li>
+            </ul>
+            <button class="cta-button">Join Now</button>
+          </div>
+  
+          <!-- Investment Stokvel -->
+          <div class="stokvel-card">
+            <h3>Investment Stokvel</h3>
+            <p>Pooled funds are invested in income-generating assets like taxis or businesses.</p>
+            <ul>
+              <li>Example: Buy a minibus taxi for long-term income.</li>
+            </ul>
+            <p><strong>How Makhie Helps:</strong></p>
+            <ul>
+              <li>Suggests investment opportunities.</li>
+              <li>Tracks profits and automates payouts.</li>
+            </ul>
+            <button class="cta-button">Explore Investments</button>
+          </div>
+
+          <!-- Property Stokvel -->
+          <div class="stokvel-card">
+            <h3>Property Stokvel</h3>
+            <p>Members save together to invest in real estate like rental properties.</p>
+            <p><strong>How Makhie Helps:</strong></p>
+            <ul>
+              <li>Tracks savings towards property goals.</li>
+              <li>Connects with developers and mortgage providers.</li>
+            </ul>
+            <button class="cta-button">Invest in Property</button>
+          </div>
+  
+  </body>
+</html>

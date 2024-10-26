@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo i {
+    margin-right: 8px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+
+  .active {
+    border-bottom: 2px solid white;
+  }
+
+  /* Search Section */
+  .search-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  /* Call-to-Action Buttons */
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+  }
+
+  .cta-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .cta-button:hover {
+    background-color: #45a049;
+  }
+
+  /* Businesses Section */
+  .businesses-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .businesses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .business-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .business-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .business-info {
+    padding: 15px;
+    text-align: left;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+
+  .progress {
+    height: 10px;
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+
+  .invest-button {
+    background-color: #f0f2f5;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .invest-button:hover {
+    background-color: #4caf50;
+    color: white;
+  }

@@ -3,12 +3,14 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const path = require('path');
 const { protect } = require('./middleware/authMiddleware'); // Import the protect middleware
+const mongoose = require('mongoose');
 const session = require('express-session');
 const Business = require('./models/Business');
 const businessController = require('./controllers/businessController'); // assuming you have a controller for business logic
 const router = express.Router();
 
 
+const User = require('./models/User');
 
 dotenv.config();
 
@@ -17,6 +19,9 @@ app.use(express.json());
 
 // Database connection
 connectDB();
+
+// Middleware for parsing request bodies
+app.use(express.urlencoded({ extended: true }));
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
@@ -28,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Session configuration 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, // Set a secure secret in your .env file
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }, // Set to `true` if using HTTPS
@@ -52,6 +57,21 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'));
 });
 
+// app.post('/login', async (req, res) => {
+//   const { username, password } = req.body;
+//   try {
+//       const user = await User.findOne({ username });
+//       if (user && user.password === password) { // Use hashing in production
+//           req.session.userId = user._id; // Store user ID in session
+//           return res.redirect('/dashboard'); // Redirect to dashboard
+//       }
+//       res.status(401).send('Invalid credentials');
+//   } catch (error) {
+//       console.error(error);
+//       res.status(500).send('Internal server error');
+//   }
+// });
+
 // Serve the registration page
 app.get('/register', (req, res) => {
   res.render('register'); // Automatically looks for register.ejs in the views folder
@@ -61,12 +81,33 @@ app.get('/register', (req, res) => {
 app.get('/businesses', require('./controllers/businessController').getBusinessesPage);
 
 // Protect /home and /dashboard routes
-app.get('/home', protect, (req, res) => {
-  res.render('home'); // This should match your home.ejs file
+app.get('/home', (req, res) => {
+  res.render('home'); // This should match the home.ejs file
 });
 
-app.get('/dashboard', protect, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'invest_dashboard.html'));
+// Route handler for dashboard
+app.get('/dashboard', async (req, res) => {
+  try {
+    const userId = req.session.userId;
+
+    if (!userId) {
+        return res.redirect('/login'); // Redirect to login if no user ID found
+    }
+
+    // Query the database for the user by ID
+    const user = await User.findById(userId);
+
+    // Check if user exists
+    if (!user) {
+        return res.status(404).send('User not found'); // Handle the case where user is not found
+    }
+
+    // Send user data to the EJS file
+    res.render('dashboard', { user });
+} catch (error) {
+    console.error(error);
+    res.status(500).send('Internal server error'); // Handle errors
+}
 });
 
 // Serve the investment page

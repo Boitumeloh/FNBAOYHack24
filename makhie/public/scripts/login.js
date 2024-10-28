@@ -24,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             console.log('Token stored in localStorage:', localStorage.getItem('token'));
 
             // Redirect immediately to avoid timing issues
-            window.location.href = '/home';
+            window.location.href = '/dashboard';
         } else {
             // Login failed message
             flashMessage.textContent = `Error: ${data.message}`;

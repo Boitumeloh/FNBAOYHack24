@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Businesses - Township Micro-Investment Platform</title>
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
+    <link rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
 </head>
 
 <body>
@@ -33,32 +35,38 @@
                 <div class="business-card">
                     <!-- Displaying Image with Check for Image Data -->
                     <% if (business.image && business.image.data) { %>
-                        <img 
-                            src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>" 
-                            alt="<%= business.business_name %>" 
-                            class="business-image" 
-                        />
-                    <% } else { %>
-                        <!-- Placeholder Image if no image data exists -->
-                        <img 
-                            src="/path/to/placeholder-image.jpg" 
-                            alt="No image available for <%= business.business_name %>" 
-                            class="business-image" 
-                        />
-                    <% } %>
-                    
-                    <div class="business-info">
-                        <h3><%= business.business_name %></h3>
-                        <p><%= business.description || "No description available." %></p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
-                        </div>
-                        <p><%= business.fundedPercentage %>% funded</p>
-                        <a href="/about/<%= business._id %>"><button class="invest-button">About Us</button></a>
-                        <a href="/invest"><button class="cta-button">Invest Now</button></a>
-                    </div>
+                        <img src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>"
+                            alt="<%= business.business_name %>" class="business-image" />
+                        <% } else { %>
+                            <!-- Placeholder Image if no image data exists -->
+                            <img src="/path/to/placeholder-image.jpg"
+                                alt="No image available for <%= business.business_name %>" class="business-image" />
+                            <% } %>
+
+                                <div class="business-info">
+                                    <h3>
+                                        <%= business.business_name %>
+                                    </h3>
+                                    <p>
+                                        <%= business.description || "No description available." %>
+                                    </p>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
+                                    </div>
+                                    <p>
+                                        <%= business.fundedPercentage %>% funded
+                                    </p>
+                                    <a href="/about/<%= business._id %>"><button class="invest-button">About Us</button></a>
+                                    
+                                    <!-- Contribute Button Section -->
+                                    <form style="text-align: center;" action="/contribute" method="POST"
+                                        class="contribute-form">
+                                        <input type="hidden" name="businessId" value="<%= business._id %>">
+                                        <button type="submit" class="cta-button">Contribute!</button>
+                                    </form>
+                                </div>
                 </div>
-            <% }); %>
+                <% }); %>
         </div>
     </section>
 
@@ -71,4 +79,5 @@
     <script src="/scripts/logout.js"></script>
     <script src="/scripts/linkDisplay.js"></script>
 </body>
+
 </html>

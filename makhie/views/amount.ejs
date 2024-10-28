@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute Amount</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="contribute-container">
+        <h1>Contribute to <%= business.business_name %></h1>
+        <p>Enter the amount you'd like to contribute towards our funding goal.</p>
+
+        <form action="/pay" method="POST">
+            <input type="hidden" name="businessId" value="<%= business._id %>">
+            <div class="amount-input">
+                <label for="amount">Amount (ZAR):</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" min="10" required>
+            </div>
+            
+            <button type="submit" class="contribute-button">Proceed to Payment</button>
+        </form>
+    </div>
+</body>
+</html>

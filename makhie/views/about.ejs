@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - <%= business.business_name %></title>
+    <title>About Us - <%= business.business_name %>
+    </title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <div class="about-container">
         <!-- Header Section -->
         <section class="header fade-in">
-            <h1>About <%= business.business_name %></h1>
-            <p class="industry">Industry: <%= business.industry %></p>
+            <h1>About <%= business.business_name %>
+            </h1>
+            <p class="industry">Industry: <%= business.industry %>
+            </p>
         </section>
 
         <!-- Business Details Section -->
         <section class="business-details fade-in">
             <div class="image-container">
                 <% if (business.image && business.image.data) { %>
-                    <img src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>" alt="<%= business.business_name %>">
-                <% } else { %>
-                    <img src="/images/default-business.jpg" alt="Default Image">
-                <% } %>
+                    <img src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>"
+                        alt="<%= business.business_name %>">
+                    <% } else { %>
+                        <img src="/images/default-business.jpg" alt="Default Image">
+                        <% } %>
             </div>
             <div class="text-content">
-                <p><%= business.description || "Welcome to our business. We strive to make an impact in the industry." %></p>
-                <p><strong>Funding Goal:</strong> $<%= business.funding_goal.toLocaleString() %></p>
-                <p><strong>Funding Received:</strong> $<%= business.funding_received.toLocaleString() %></p>
-                <p><strong>Project Timeline:</strong> <%= business.time_span %></p>
-                <p><strong>Benefit:</strong> <%= business.benefit %></p>
-                <p><strong>Location:</strong> <%= business.location %></p>
+                <p>
+                    <%= business.description || "Welcome to our business. We strive to make an impact in the industry."
+                        %>
+                </p>
+                <p><strong>Funding Goal:</strong> $<%= business.funding_goal.toLocaleString() %>
+                </p>
+                <p><strong>Funding Received:</strong> $<%= business.funding_received.toLocaleString() %>
+                </p>
+                <p><strong>Project Timeline:</strong>
+                    <%= business.time_span %>
+                </p>
+                <p><strong>Benefit:</strong>
+                    <%= business.benefit %>
+                </p>
+                <p><strong>Location:</strong>
+                    <%= business.location %>
+                </p>
             </div>
         </section>
-        
+
         <!-- Mission Section -->
         <section class="mission fade-in">
             <h2>Our Mission</h2>
-            <p><%= business.description %>.</p>
-            <p>We look forward to partnering with contributors, clients, and the community to reach our funding goal of $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
+            <p>
+                <%= business.description %>.
+            </p>
+            <p>We look forward to partnering with contributors, clients, and the community to reach our funding goal of
+                $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
         </section>
 
         <!-- Contribute Button Section -->
-        <div class="fade-in" style="text-align: center; margin-top: 30px;">
-            <button class="contribute-btn">Contribute!</button>
-        </div>
+        <form style="text-align: center;" action="/contribute" method="POST" class="contribute-form">
+            <input type="hidden" name="businessId" value="<%= business._id %>">
+            <button type="submit" class="contribute-btn">Contribute!</button>
+        </form>
+
     </div>
     <script src="/scripts/about.js"></script>
 </body>
+
 </html>

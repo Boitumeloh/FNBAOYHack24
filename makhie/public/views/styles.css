@@ -7,6 +7,57 @@
   font-family: "Arial", sans-serif;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+}
+
+/* Always show the nav-menu for larger screens */
+.nav-menu {
+  display: flex; /* Always show the menu for larger screens */
+  flex-direction: row; /* Items displayed in a row */
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* Hide menu initially on mobile */
+    flex-direction: column; /* Stack items vertically */
+    position: absolute; /* Position absolutely */
+    top: 60px; /* Adjust based on your navbar height */
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Same background color */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  .nav-menu.active {
+    display: flex; /* Show the menu when active on mobile */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+  }
+}
+
+/* Hide hamburger icon on larger screens */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none; /* Hide hamburger icon on large screens */
+  }
+}
+
 /* Navbar */
 .navbar {
   background-color: #020a35;

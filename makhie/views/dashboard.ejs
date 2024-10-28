@@ -50,8 +50,8 @@
                 <h3>Account Balance</h3>
                 <p class="balance-amount">R<%= user.balance.toFixed(2) %></p>
                 <div class="balance-actions">
-                    <a href="/deposit" class="button action-button" disabled>Deposit Funds</a>
-                    <a href="/withdraw" class="button action-button" disabled>Withdraw Funds</a>
+                    <a style="pointer-events: none;" href="/deposit" class="button action-button">Deposit Funds</a>
+                    <a style="pointer-events: none;" href="/withdraw" class="button action-button">Withdraw Funds</a>
                 </div>
             </div>
         </div>

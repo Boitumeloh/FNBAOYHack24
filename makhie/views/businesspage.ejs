@@ -54,27 +54,25 @@
                             <% } %>
 
                                 <div class="business-info">
-                                    <h3>
-                                        <%= business.business_name %>
-                                    </h3>
-                                    <p>
-                                        <%= business.description || "No description available." %>
-                                    </p>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
-                                    </div>
-                                    <p>
-                                        <%= business.fundedPercentage %>% funded
-                                    </p>
-                                    <a href="/about/<%= business._id %>"><button class="invest-button">About Us</button></a>
+                                <h3><%= business.business_name %></h3>
+                                <p><%= business.description || "No description available." %></p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
+                                </div>
+                                <p><%= business.fundedPercentage %>% funded</p>
+                                
+                                <!-- Button Group for 'About Us' and 'Contribute!' buttons -->
+                                <div class="button-group">
+                                    <!-- 'About Us' Button -->
+                                    <a style="text-decoration: none;" href="/about/<%= business._id %>" class="styled-button">About Us</a>
                                     
-                                    <!-- Contribute Button Section -->
-                                    <form style="text-align: center;" action="/contribute" method="POST"
-                                        class="contribute-form">
+                                    <!-- 'Contribute!' Button -->
+                                    <form action="/contribute" method="POST" class="contribute-form">
                                         <input type="hidden" name="businessId" value="<%= business._id %>">
-                                        <button type="submit" class="cta-button">Contribute!</button>
+                                        <button type="submit" class="styled-button">Contribute!</button>
                                     </form>
                                 </div>
+                            </div>
                 </div>
                 <% }); %>
         </div>

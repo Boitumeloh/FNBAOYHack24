@@ -10,7 +10,29 @@
 </head>
 
 <body>
-    <div class="about-container">
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="/home">
+          <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
+        </a>
+        <!-- Hamburger icon -->
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        <nav>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/businesses" class="active">Businesses</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a id="logoutBtn" href="/" onclick="logout()">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <div class="about-container" style="margin-top: 50px; margin-bottom: 50px;">
         <!-- Header Section -->
         <section class="header fade-in">
             <h1>About <%= business.business_name %>
@@ -34,9 +56,9 @@
                     <%= business.description || "Welcome to our business. We strive to make an impact in the industry."
                         %>
                 </p>
-                <p><strong>Funding Goal:</strong> $<%= business.funding_goal.toLocaleString() %>
+                <p><strong>Funding Goal:</strong> R<%= business.funding_goal.toLocaleString() %>
                 </p>
-                <p><strong>Funding Received:</strong> $<%= business.funding_received.toLocaleString() %>
+                <p><strong>Funding Received:</strong> R<%= business.funding_received.toLocaleString() %>
                 </p>
                 <p><strong>Project Timeline:</strong>
                     <%= business.time_span %>
@@ -57,7 +79,7 @@
                 <%= business.description %>.
             </p>
             <p>We look forward to partnering with contributors, clients, and the community to reach our funding goal of
-                $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
+                R<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
         </section>
 
         <!-- Contribute Button Section -->

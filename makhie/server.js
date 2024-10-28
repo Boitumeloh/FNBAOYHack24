@@ -9,7 +9,6 @@ const businessController = require('./controllers/businessController'); // assum
 const router = express.Router();
 
 
-
 dotenv.config();
 
 const app = express();
@@ -18,7 +17,7 @@ app.use(express.json());
 // Database connection
 connectDB();
 
-// Set EJS as the templating engine
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); // Ensure views directory path
 

@@ -21,26 +21,26 @@ const businessSchema = new mongoose.Schema({
         type: String,
         required: true 
     },
-    risk_id: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Risk' 
-    },
-    location_id: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Location' 
+    location: { 
+        type: String, 
+        required: true 
     },
     funding_received: { 
         type: Number, 
         required: true, 
         default: 0 // Default funding received is set to 0
     },
-    image: { 
-        type: String, 
-        required: false // Optional field for business image
+    image: {
+        data: Buffer, // Binary data for image
+        contentType: String // MIME type, e.g., 'image/png'
     },
     description: { 
         type: String, 
-        required: false // Optional field for business description
+        required: true
+    },
+    user_id: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
     }
 }, { timestamps: true });
 

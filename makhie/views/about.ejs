@@ -8,15 +8,17 @@
 </head>
 <body>
     <div class="about-container">
-        <section class="header">
+        <!-- Header Section -->
+        <section class="header fade-in">
             <h1>About <%= business.business_name %></h1>
             <p class="industry">Industry: <%= business.industry %></p>
         </section>
 
-        <section class="business-details">
+        <!-- Business Details Section -->
+        <section class="business-details fade-in">
             <div class="image-container">
-                <% if (business.image) { %>
-                    <img src="<%= business.image %>" alt="<%= business.business_name %>">
+                <% if (business.image && business.image.data) { %>
+                    <img src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>" alt="<%= business.business_name %>">
                 <% } else { %>
                     <img src="/images/default-business.jpg" alt="Default Image">
                 <% } %>
@@ -27,15 +29,22 @@
                 <p><strong>Funding Received:</strong> $<%= business.funding_received.toLocaleString() %></p>
                 <p><strong>Project Timeline:</strong> <%= business.time_span %></p>
                 <p><strong>Benefit:</strong> <%= business.benefit %></p>
-                <p><strong>Location:</strong> <%= business.location_id %></p>
+                <p><strong>Location:</strong> <%= business.location %></p>
             </div>
         </section>
         
-        <section class="mission">
+        <!-- Mission Section -->
+        <section class="mission fade-in">
             <h2>Our Mission</h2>
-            <p>At <%= business.business_name %>, we are committed to delivering exceptional value through innovative practices and a focus on our mission of <%= business.benefit %>.</p>
-            <p>We look forward to partnering with investors, clients, and the community to reach our funding goal of $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
+            <p><%= business.description %>.</p>
+            <p>We look forward to partnering with contributors, clients, and the community to reach our funding goal of $<%= business.funding_goal.toLocaleString() %> and continue our journey towards impactful change.</p>
         </section>
+
+        <!-- Contribute Button Section -->
+        <div class="fade-in" style="text-align: center; margin-top: 30px;">
+            <button class="contribute-btn">Contribute!</button>
+        </div>
     </div>
+    <script src="/scripts/about.js"></script>
 </body>
 </html>

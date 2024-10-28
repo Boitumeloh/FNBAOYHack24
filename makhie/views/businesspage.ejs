@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Businesses - Township Micro-Investment Platform</title>
-    <link rel="stylesheet" href="/styles.css" /> <!-- Updated path -->
-    <link rel="stylesheet"
-        href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
 </head>
 
 <body>
@@ -21,7 +19,7 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/businesses" class="active">Businesses</a></li>
                 <li><a href="/dashboard">Dashboard</a></li>
-                <li id="authLink"></li> <!-- Placeholder for login/logout link -->
+                <li id="authLink"></li>
             </ul>
         </nav>
     </header>
@@ -33,21 +31,30 @@
             <% businesses.forEach(function(business) { %>
                 <!-- Business Card -->
                 <div class="business-card">
-                    <img src="<%= business.image %>" alt="<%= business.business_name %>" class="business-image" />
+                    <!-- Displaying Image with Check for Image Data -->
+                    <% if (business.image && business.image.data) { %>
+                        <img 
+                            src="data:<%= business.image.contentType %>;base64,<%= business.image.data.toString('base64') %>" 
+                            alt="<%= business.business_name %>" 
+                            class="business-image" 
+                        />
+                    <% } else { %>
+                        <!-- Placeholder Image if no image data exists -->
+                        <img 
+                            src="/path/to/placeholder-image.jpg" 
+                            alt="No image available for <%= business.business_name %>" 
+                            class="business-image" 
+                        />
+                    <% } %>
+                    
                     <div class="business-info">
-                        <h3>
-                            <%= business.business_name %>
-                        </h3>
-                        <p>
-                            <%= business.description || "No description available." %>
-                        </p>
+                        <h3><%= business.business_name %></h3>
+                        <p><%= business.description || "No description available." %></p>
                         <div class="progress-bar">
                             <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
                         </div>
-                        <p>
-                            <%= business.fundedPercentage %>% funded
-                        </p>
-                        <a href="/about"><button class="invest-button">About Us</button></a>
+                        <p><%= business.fundedPercentage %>% funded</p>
+                        <a href="/about/<%= business._id %>"><button class="invest-button">About Us</button></a>
                         <a href="/invest"><button class="cta-button">Invest Now</button></a>
                     </div>
                 </div>
@@ -60,10 +67,8 @@
         <p>&copy; 2024 Township Micro-Investment Platform. All Rights Reserved.</p>
     </footer>
 
-    <script src="/scripts/app.js"></script> <!-- Updated path -->
+    <script src="/scripts/app.js"></script>
     <script src="/scripts/logout.js"></script>
-
     <script src="/scripts/linkDisplay.js"></script>
 </body>
-
 </html>

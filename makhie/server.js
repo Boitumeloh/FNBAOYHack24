@@ -8,9 +8,8 @@ const session = require('express-session');
 const Business = require('./models/Business');
 const businessController = require('./controllers/businessController'); // assuming you have a controller for business logic
 const router = express.Router();
-
-
 const User = require('./models/User');
+
 
 dotenv.config();
 
@@ -57,21 +56,6 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'));
 });
 
-// app.post('/login', async (req, res) => {
-//   const { username, password } = req.body;
-//   try {
-//       const user = await User.findOne({ username });
-//       if (user && user.password === password) { // Use hashing in production
-//           req.session.userId = user._id; // Store user ID in session
-//           return res.redirect('/dashboard'); // Redirect to dashboard
-//       }
-//       res.status(401).send('Invalid credentials');
-//   } catch (error) {
-//       console.error(error);
-//       res.status(500).send('Internal server error');
-//   }
-// });
-
 // Serve the registration page
 app.get('/register', (req, res) => {
   res.render('register'); // Automatically looks for register.ejs in the views folder
@@ -79,6 +63,23 @@ app.get('/register', (req, res) => {
 
 // Route to get businesses page
 app.get('/businesses', require('./controllers/businessController').getBusinessesPage);
+
+// Route to render the about page for a specific business
+app.get('/about/:businessId', async (req, res) => {
+  try {
+      const businessId = req.params.businessId; // Get the business ID from the route parameters
+      const business = await Business.findById(businessId); // Query the database for the business
+
+      if (!business) {
+          return res.status(404).send('Business not found'); // Handle case where business does not exist
+      }
+
+      res.render('about', { business }); // Render the about page with the business data
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Server error'); // Handle server error
+  }
+});
 
 // Protect /home and /dashboard routes
 app.get('/home', (req, res) => {

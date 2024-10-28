@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser, logoutUser } = require('../controllers/userController');  // Import auth-related controllers
-const { protect } = require('../middleware/authMiddleware'); // Import auth middleware
+const { registerUser, loginUser, logoutUser } = require('../controllers/userController');
+const { protect } = require('../middleware/authMiddleware');
 const User = require('../models/User');
+const Business = require('../models/Business'); 
 
 // Route for registering a new user
 router.post('/register', registerUser);
@@ -10,7 +11,8 @@ router.post('/register', registerUser);
 // Route for user login
 router.post('/login', loginUser);
 
-router.get("/logout", logoutUser);
+// Route for user logout
+router.get('/logout', logoutUser);
 
 // Protected route to get user balance and transactions (requires authentication)
 router.get('/:id', protect, async (req, res) => {

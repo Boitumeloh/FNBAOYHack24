@@ -199,6 +199,14 @@ app.post('/pay', (req, res) => {
   res.redirect(payfastUrl);
 });
 
+app.get('/payment/success', (req, res) => {
+  res.render('success');
+});
+
+app.get('/payment/cancel', (req, res) => {
+  res.render('cancel');
+});
+
 // Route for business registration
 router.post('/api/businesses/register', businessController.registerBusiness);
 

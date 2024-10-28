@@ -44,11 +44,9 @@ body {
   color: #4caf50; /* Hover color for navbar links */
 }
 
-
-
 .hero-content {
   max-width: 80%; /* Limit the width of the content */
-    padding: 2rem; /* Add padding for better spacing */
+  padding: 2rem; /* Add padding for better spacing */
 }
 
 .hero-content h2 {
@@ -62,7 +60,11 @@ body {
 }
 
 .hero {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 1) 50%, rgba(2, 10, 53, 1) 50%); /* Green and blue gradient */
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 1) 50%,
+    rgba(2, 10, 53, 1) 50%
+  ); /* Green and blue gradient */
   color: white;
   display: flex;
   justify-content: center; /* Center horizontally */
@@ -107,8 +109,6 @@ body {
   text-align: center; /* Center align the text */
 }
 
-
-
 .cta-button {
   background-color: #020a35;
   color: white;
@@ -130,7 +130,6 @@ body {
   border-radius: 10px; /* Rounded corners */
   margin: 2rem; /* Space around the section */
 }
-
 
 .project-content {
   display: flex; /* Flexbox layout */
@@ -158,7 +157,7 @@ body {
   display: flex; /* Flexbox for images */
   justify-content: space-around; /* Space images evenly */
   flex-wrap: wrap; /* Allow wrapping */
-   margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .project-images img {
@@ -169,18 +168,18 @@ body {
 }
 
 .project-content {
-  display: flex;               /* Use Flexbox for layout */
-  align-items: center;        /* Align items vertically */
-  margin-bottom: 2rem;        /* Space between sections */
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 2rem; /* Space between sections */
 }
 
 .project-images {
-  flex: 1;                    /* Allow image to take up space */
-  margin-right: 20px;        /* Space between image and text */
+  flex: 1; /* Allow image to take up space */
+  margin-right: 20px; /* Space between image and text */
 }
 
 .project-description {
-  flex: 2;                    /* Allow text to take up more space */
+  flex: 2; /* Allow text to take up more space */
 }
 
 /* Revolving Capital Facility Section */
@@ -217,18 +216,17 @@ body {
   background-color: #03136b; /* Darker shade on hover */
 }
 .investor-section {
-  padding: 2rem;              /* Padding for the section */
+  padding: 2rem; /* Padding for the section */
 }
 
 .investor-content {
-  display: flex;              /* Flexbox for layout */
-  align-items: center;        /* Align items vertically */
-  margin-bottom: 2rem;        /* Space between sections */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 2rem; /* Space between sections */
 }
 
-
 .investor-description {
-  flex: 2;                    /* Allow text to take up more space */
+  flex: 2; /* Allow text to take up more space */
 }
 
 .investor-description h1 {
@@ -242,9 +240,9 @@ body {
 }
 
 .large-image {
-  width: 100%; 
-  max-width: 450px; 
-  border-radius: 5px;         
+  width: 100%;
+  max-width: 450px;
+  border-radius: 5px;
 }
 /* Businesses Section */
 .businesses-section {
@@ -418,7 +416,6 @@ body {
   margin: 0.5rem 0;
 }
 
-
 /* Dashboard Section */
 .dashboard {
   padding: 2rem;
@@ -477,7 +474,7 @@ body {
   margin-top: 1rem;
 }
 
-.transactions th, 
+.transactions th,
 .transactions td {
   padding: 1rem;
   border-bottom: 1px solid #ddd;
@@ -510,7 +507,6 @@ body {
   color: white;
 }
 
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .businesses-container {
@@ -518,7 +514,6 @@ body {
     align-items: center;
   }
 }
-
 
 .business-updates {
   padding: 2rem;
@@ -852,6 +847,37 @@ body {
   font-size: 1em;
   line-height: 1.6;
 }
+
+/* Hamburger menu icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Hamburger active state */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
 /* Footer */
 .footer {
   text-align: center;
@@ -859,7 +885,6 @@ body {
   background-color: #020a35;
   color: white;
 }
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -931,13 +956,13 @@ body {
 /* Puff of smoke animation */
 @keyframes puffEffect {
   0% {
-      filter: blur(3px);
-      opacity: 0;
-      transform: scale(1.2);
+    filter: blur(3px);
+    opacity: 0;
+    transform: scale(1.2);
   }
   100% {
-      filter: blur(0px);
-      opacity: 1;
-      transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
   }
 }

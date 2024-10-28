@@ -1,100 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Dashboard | Township Micro-Investment Platform</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Investment Dashboard | Township Micro-Investment Platform</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
-</head>
+  <body>
+    <!-- Navbar -->
+<header class="navbar">
+  <a href="/home" class="logo">
+    <h1><i class="fi fi-bs-square-m"></i> Makhie</h1>
+  </a>
+  
+  <!-- Hamburger icon for mobile -->
+  <div class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-<body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <a href="/home">
-      <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/businesses">Businesses</a></li>
-        <li><a href="/dashboard" class="active">Dashboard</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Navigation Menu -->
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/businesses">Businesses</a></li>
+      <li><a href="/dashboard" class="active">Dashboard</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- Dashboard Section -->
-  <section class="dashboard">
-    <div class="dashboard-header">
-      <h2>Investment Overview</h2>
-      <a href="/invest"><button class="cta-button">Add New Investment</button></a>
-    </div>
-
-    <div class="stats-grid">
-      <div class="card total-investment">
-        <h3>Total Investment</h3>
-        <p>R 150,000</p>
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+      <div class="dashboard-header">
+        <h2>Investment Overview</h2>
+        <a href="/invest"
+          ><button class="cta-button">Add New Investment</button></a
+        >
       </div>
-      <div class="card returns">
-        <h3>Estimated Returns</h3>
-        <p>R 35,000</p>
+
+      <div class="stats-grid">
+        <div class="card total-investment">
+          <h3>Total Investment</h3>
+          <p>R 150,000</p>
+        </div>
+        <div class="card returns">
+          <h3>Estimated Returns</h3>
+          <p>R 35,000</p>
+        </div>
+        <div class="card active-projects">
+          <h3>Active Projects</h3>
+          <p>12 Projects</p>
+        </div>
+        <div class="card new-investors">
+          <h3>New Investors</h3>
+          <p>25 this month</p>
+        </div>
       </div>
-      <div class="card active-projects">
-        <h3>Active Projects</h3>
-        <p>12 Projects</p>
+
+      <div class="transactions">
+        <h3>Recent Transactions</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Investment</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024-10-01</td>
+              <td>Project A</td>
+              <td>R 5,000</td>
+              <td class="status success">Completed</td>
+            </tr>
+            <tr>
+              <td>2024-10-10</td>
+              <td>Project B</td>
+              <td>R 2,500</td>
+              <td class="status pending">Pending</td>
+            </tr>
+            <tr>
+              <td>2024-10-15</td>
+              <td>Project C</td>
+              <td>R 3,000</td>
+              <td class="status failed">Failed</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="card new-investors">
-        <h3>New Investors</h3>
-        <p>25 this month</p>
-      </div>
-    </div>
+    </section>
 
-    <div class="transactions">
-      <h3>Recent Transactions</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Investment</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2024-10-01</td>
-            <td>Project A</td>
-            <td>R 5,000</td>
-            <td class="status success">Completed</td>
-          </tr>
-          <tr>
-            <td>2024-10-10</td>
-            <td>Project B</td>
-            <td>R 2,500</td>
-            <td class="status pending">Pending</td>
-          </tr>
-          <tr>
-            <td>2024-10-15</td>
-            <td>Project C</td>
-            <td>R 3,000</td>
-            <td class="status failed">Failed</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Township Micro-Investment Platform. All Rights Reserved.</p>
-  </footer>
-
-  <!-- External JavaScript files -->
-  <script src="../public/scripts/protectPage.js"></script> <!-- For login protection -->
-  <script src="/scripts/app.js"></script> <!-- Application scripts -->
-</body>
-
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; 2024 Township Micro-Investment Platform. All Rights Reserved.
+      </p>
+    </footer>
+    <script src="/scripts/hamburger.js"></script>
+    <!-- External JavaScript files -->
+    <script src="../public/scripts/protectPage.js"></script>
+    <!-- For login protection -->
+    <script src="/scripts/app.js"></script>
+    <!-- Application scripts -->
+  </body>
 </html>

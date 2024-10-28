@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Township Micro-Investment Platform</title>
-    <link rel="stylesheet" href="/views/styles.css"/>
+    <link rel="stylesheet" href="/views/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
@@ -13,8 +13,16 @@
   <body>
     <!-- Navigation Bar -->
     <header class="navbar">
-      <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
-      <nav>
+      <a href="/"
+        ><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a
+      >
+      <!-- Hamburger icon -->
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-menu">
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/register">Register</a></li>
@@ -23,20 +31,26 @@
           <li><a href="/login">Login</a></li>
         </ul>
       </nav>
+      
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="video-container">
         <video autoplay muted loop>
-          <source src="../vecteezy_a-man-is-looking-at-the-direction-of-stock-movement-with_25785666.mp4" type="video/mp4">
+          <source
+            src="../vecteezy_a-man-is-looking-at-the-direction-of-stock-movement-with_25785666.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
-      <div class="blue-overlay"></div> <!-- Add this div for the blue overlay -->
+      <div class="blue-overlay"></div>
+      <!-- Add this div for the blue overlay -->
       <div class="hero-content">
         <h2>Invest in Local Dreams</h2>
         <p>
-          Help township businesses grow by making small but meaningful investments. Be part of the change!
+          Help township businesses grow by making small but meaningful
+          investments. Be part of the change!
         </p>
         <a href="/register" class="cta-button">Get Started</a>
       </div>
@@ -56,10 +70,10 @@
             revolving loan, but better. No monthly account or admin fees. Only
             invest for what you use, if you use it.
           </p>
-          <br>
+          <br />
           <a href="#" class="cta-button">Get a quick quote</a>
         </div>
-        <br>
+        <br />
         <div class="project-images">
           <img src="../img/fund.webp" alt="Funding Image" />
         </div>
@@ -82,7 +96,7 @@
             9, or 12 months. Fixed terms. Fixed fees. No early repayment
             penalties.
           </p>
-          <br>
+          <br />
           <a href="#" class="cta-button">Get a quick quote</a>
         </div>
       </div>
@@ -103,14 +117,12 @@
             potential returns on your investment. Get involved and make a
             positive impact today!
           </p>
-          <br>
+          <br />
           <a href="#investment-details" class="cta-button">Learn More</a>
         </div>
-        <br>
+        <br />
         <div class="project-images">
-          <img src="../img/investmentopp.jpg"
-            alt="Investment Opportunities"
-          />
+          <img src="../img/investmentopp.jpg" alt="Investment Opportunities" />
         </div>
       </div>
     </section>
@@ -119,14 +131,11 @@
     <section class="about-project">
       <div class="project-content">
         <div class="project-images">
-          <img
-            src="../img/returns.webp"
-            alt="Returns on Investment"
-          />
+          <img src="../img/returns.webp" alt="Returns on Investment" />
         </div>
         <div class="project-description">
           <h1>Returns on Investment</h1>
-          <br>
+          <br />
           <p>
             Our platform provides transparent and clear information about
             potential returns on your investments. With fixed terms and a focus
@@ -135,7 +144,7 @@
             performance of your investments, ensuring you stay informed about
             your contributions to local businesses and their growth journey.
           </p>
-          <br>
+          <br />
           <a href="#investment-returns" class="cta-button"
             >See Potential Returns</a
           >
@@ -149,7 +158,7 @@
         &copy; 2024 Township Micro-Investment Platform. All Rights Reserved.
       </p>
     </footer>
-  
+    <script src="/scripts/hamburger.js"></script>
     <script src="/scripts/app.js"></script>
   </body>
 </html>

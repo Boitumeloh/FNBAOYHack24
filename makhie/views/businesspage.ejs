@@ -1,65 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Businesses - Township Micro-Investment Platform</title>
-    <link rel="stylesheet" href="/styles.css" /> <!-- Updated path -->
-    <link rel="stylesheet"
-        href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css" />
-</head>
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- Updated path -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <header class="navbar">
-        <a href="/home">
-            <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/businesses" class="active">Businesses</a></li>
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/">Logout</a></li>
-            </ul>
-        </nav>
+      <a href="/home">
+        <h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/businesses" class="active">Businesses</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </nav>
+      <!-- Hamburger icon -->
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </header>
 
     <!-- Businesses Section -->
     <section class="businesses-section">
-        <h2>Explore Businesses & Investment Opportunities</h2>
-        <div class="businesses-container">
-            <% businesses.forEach(function(business) { %>
-                <!-- Business Card -->
-                <div class="business-card">
-                    <img src="<%= business.image %>" alt="<%= business.business_name %>" class="business-image" />
-                    <div class="business-info">
-                        <h3>
-                            <%= business.business_name %>
-                        </h3>
-                        <p>
-                            <%= business.description || "No description available." %>
-                        </p>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: <%= business.fundedPercentage %>%"></div>
-                        </div>
-                        <p>
-                            <%= business.fundedPercentage %>% funded
-                        </p>
-                        <a href="/about"><button class="invest-button">About Us</button></a>
-                        <a href="/invest"><button class="cta-button">Invest Now</button></a>
-                    </div>
-                </div>
-            <% }); %>
+      <h2>Explore Businesses & Investment Opportunities</h2>
+      <div class="businesses-container">
+        <% businesses.forEach(function(business) { %>
+        <!-- Business Card -->
+        <div class="business-card">
+          <img
+            src="<%= business.image %>"
+            alt="<%= business.business_name %>"
+            class="business-image"
+          />
+          <div class="business-info">
+            <h3><%= business.business_name %></h3>
+            <p><%= business.description || "No description available." %></p>
+            <div class="progress-bar">
+              <div
+                class="progress"
+                style="width: <%= business.fundedPercentage %>%"
+              ></div>
+            </div>
+            <p><%= business.fundedPercentage %>% funded</p>
+            <a href="/about"><button class="invest-button">About Us</button></a>
+            <a href="/invest"><button class="cta-button">Invest Now</button></a>
+          </div>
         </div>
+        <% }); %>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Township Micro-Investment Platform. All Rights Reserved.</p>
+      <p>
+        &copy; 2024 Township Micro-Investment Platform. All Rights Reserved.
+      </p>
     </footer>
-    <script src="/scripts/app.js"></script> <!-- Updated path -->
-</body>
-
+    <script src="/scripts/app.js"></script>
+    <!-- Updated path -->
+  </body>
 </html>

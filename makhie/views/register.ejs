@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register | Township Micro-Investment Platform</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Township Micro-Investment Platform</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
     />
-</head>
-<body>
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <a href="/"><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Registration Container -->
-  <div class="register-container">
-    <h1>Create Your Account</h1>
-    <form id="dataForm" class="register-form" method="POST" action="/api/users/register">
-      <div class="form-group">
-        <label for="username">Name</label>
-        <input type="text" id="username" name="username" placeholder="Enter your name" required />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <a href="/"
+        ><h1 class="logo"><i class="fi fi-bs-square-m"></i>Makhie</h1></a
+      >
+       <!-- Hamburger icon -->
+       <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+     
+    </header>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
-      </div>
+    <!-- Registration Container -->
+    <div class="register-container">
+      <h1>Create Your Account</h1>
+      <form
+        id="dataForm"
+        class="register-form"
+        method="POST"
+        action="/api/users/register"
+      >
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required />
-      </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-      <button type="submit" class="cta-button">Register</button>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
 
-      <p>Already have an account? <a href="/login">Login here</a></p>
-      <p>Register you business<a href='/business-register'>Register</a></p>
-    </form>
-  </div>
+        <button type="submit" class="cta-button">Register</button>
 
-  <script src="/scripts/register.js"></script>
-</body>
+        <p>Already have an account? <a href="/login">Login here</a></p>
+        <p>Register you business<a href="/business-register">Register</a></p>
+      </form>
+    </div>
+    <script src="/scripts/hamburger.js"></script>
+    <script src="/scripts/register.js"></script>
+  </body>
 </html>

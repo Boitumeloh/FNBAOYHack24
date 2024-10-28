@@ -40,11 +40,13 @@ router.post('/', upload.single('image'), async (req, res) => {
 
     try {
         const newBusiness = await business.save();
-        res.status(201).json(newBusiness);
+        res.redirect('/home');
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 });
 
 module.exports = router;
+
+
 

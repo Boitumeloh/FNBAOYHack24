@@ -4,55 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Include a CSS file for styling -->
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <!-- Navbar -->
-<header class="navbar">
-  <a href="/home" class="logo">
-    <h1><i class="fi fi-bs-square-m"></i> Makhie</h1>
-  </a>
-  
-  <!-- Hamburger icon for mobile -->
-  <div class="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a href="/businesses">Businesses</a></li>
-      <li><a href="/dashboard" class="active">Dashboard</a></li>
-      <li><a href="/">Logout</a></li>
-    </ul>
-  </nav>
-</header>
-
+    <header class="navbar">
+        <a href="/home" class="logo">Makhie</a>
+        
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <!-- Navbar Links -->
+        <nav id="nav-links">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/businesses">Businesses</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a id="logoutBtn" href="/" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Dashboard Section -->
     <section class="dashboard">
         <h2>Welcome, <%= user.username %>!</h2>
-        <div class="dashboard-overview">
-            <div class="user-info">
+        <div class="dashboard-container" style="margin-top: 35px;">
+            <!-- User Info Card -->
+            <div class="card user-info-card" style="margin-bottom: 20px;">
                 <h3>User Information</h3>
                 <p><strong>Email:</strong> <%= user.email %></p>
                 <p><strong>Account Created:</strong> <%= user.createdAt.toDateString() %></p>
             </div>
-            <div class="account-balance">
+
+            <!-- Account Balance Card -->
+            <div class="card balance-card" style="margin-bottom: 20px;">
                 <h3>Account Balance</h3>
-                <p class="balance-amount">$<%= user.balance.toFixed(2) %></p>
+                <p class="balance-amount">R<%= user.balance.toFixed(2) %></p>
                 <div class="balance-actions">
-                    <a href="/deposit" class="button">Deposit Funds</a>
-                    <a href="/withdraw" class="button">Withdraw Funds</a>
+                    <a href="/deposit" class="button action-button" disabled>Deposit Funds</a>
+                    <a href="/withdraw" class="button action-button" disabled>Withdraw Funds</a>
                 </div>
             </div>
         </div>
 
-        <!-- Transaction History -->
-        <div class="transaction-history">
+        <!-- Transaction History Card -->
+        <div class="card transaction-history-card" style="margin-bottom: 20px;">
             <h3>Recent Transactions</h3>
             <% if (user.transactions && user.transactions.length > 0) { %>
                 <table class="transaction-table">
@@ -74,20 +74,27 @@
                     </tbody>
                 </table>
             <% } else { %>
-                <p>No transactions available.</p>
+                <p class="no-transactions">No transactions available.</p>
             <% } %>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Township Micro-Investment Platform. All Rights Reserved.</p>
     </footer>
 
-  <!-- External JavaScript files -->
-<script src="/scripts/hamburger.js"></script>
-  <script src="/scripts/logout.js"></script>
-  <script src="/scripts/protectPage.js"></script> <!-- For login protection -->
-  <script src="/scripts/app.js"></script> <!-- Application scripts -->
+    <!-- JavaScript -->
+    <script>
+        // Toggle hamburger menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        }
+    </script>
+    <script src="/scripts/logout.js"></script>
+    <script src="/scripts/protectPage.js"></script>
+    <script src="/scripts/app.js"></script>
 </body>
-
 </html>
+
